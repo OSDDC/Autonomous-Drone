@@ -10,7 +10,7 @@ void setup() {
   FastLED.setBrightness(50);
 }
 
-int i = 0;
+int i = 2;
 
 void loop() {
 
@@ -76,7 +76,7 @@ void loop() {
     leds[7] = CRGB::White;
 
     FastLED.show();
-    delay(1000);
+    delay(50);
     
     leds[0] = CRGB::Black;
     leds[1] = CRGB::Black;
@@ -88,7 +88,34 @@ void loop() {
     leds[7] = CRGB::Black;
 
     FastLED.show();
-    delay(1000);
+    delay(2000);
   }
 }
+
+
+    leds[0] = CRGB::White;
+    leds[1] = CRGB::White;
+    leds[2] = CRGB::White;
+    leds[3] = CRGB::White;
+    leds[4] = CRGB::White;
+    leds[5] = CRGB::White;
+    leds[6] = CRGB::White;
+    leds[7] = CRGB::White;
+
+    FastLED.show();
+    delay(50);
+    
+    leds[0] = CRGB::Black;
+    leds[1] = CRGB::Black;
+    leds[2] = CRGB::Black;
+    leds[3] = CRGB::Black;
+    leds[4] = CRGB::Black;
+    leds[5] = CRGB::Black;
+    leds[6] = CRGB::Black;
+    leds[7] = CRGB::Black;
+
+    FastLED.show();
+    delay(2000);
+
+    
  
