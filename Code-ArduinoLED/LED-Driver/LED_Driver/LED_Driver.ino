@@ -63,7 +63,7 @@ void loop() {
 
     FastLED.show();
     delay(1000);
-    i++;
+    
   }
   else if (i >= 2) {
     leds[0] = CRGB::White;
