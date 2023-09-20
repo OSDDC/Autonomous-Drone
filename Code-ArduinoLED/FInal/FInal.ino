@@ -4,7 +4,6 @@
 #define LED_PIN   D4
 
 CRGB leds[NUM_LEDS];
-int i = 1;
 
 
 #include <Wire.h>
@@ -33,7 +32,7 @@ void loop() {
 
 void Lights() {
 
-  if (i <= 1) {
+  if (distance >= 200) {
 
     leds[0] = CRGB::Red;
     leds[1] = CRGB::Red;
@@ -116,7 +115,7 @@ void Lights() {
     delay(500);
     
   }
-  else if (i >= 2) {
+  else if (distance <= 200) {
     leds[0] = CRGB::White;
     leds[1] = CRGB::White;
     leds[2] = CRGB::White;
@@ -213,8 +212,8 @@ void Sonic(){
   distance = duration / 58.2;
   String disp = String(distance);
 
-  Serial.print("Distance: ");
-  Serial.print(disp);
-  Serial.println(" cm");
+  Serial.print("Distance: ");       // used for debugging
+  Serial.print(disp);               // used for debugging
+  Serial.println(" cm");            // used for debugging
   delay(1500);
 }
