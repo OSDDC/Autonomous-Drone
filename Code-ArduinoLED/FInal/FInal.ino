@@ -210,10 +210,10 @@ void Sonic(){
   
   duration = pulseIn(echoPin, HIGH);
   distance = duration / 58.2;
-  String disp = String(distance);
+  // String disp = String(distance);
 
-  Serial.print("Distance: ");       // used for debugging
-  Serial.print(disp);               // used for debugging
-  Serial.println(" cm");            // used for debugging
+  // Serial.print("Distance: ");       // used for debugging
+  // Serial.print(disp);               // used for debugging
+  // Serial.println(" cm");            // used for debugging
   delay(1500);
 }
