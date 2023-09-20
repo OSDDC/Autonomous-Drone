@@ -26,6 +26,7 @@ void setup() {
 
 void loop() {
   Lights();
+  Blink();
   Sonic();
 }
 
@@ -52,27 +53,27 @@ void Lights() {
     leds[23] = CRGB::Red;
     
     FastLED.show();
-    delay(500);
+    delay(1000);
     
-    leds[0] = CRGB::White;
-    leds[1] = CRGB::White;
-    leds[2] = CRGB::White;
-    leds[3] = CRGB::White;
-    leds[4] = CRGB::White;
-    leds[5] = CRGB::White;
-    leds[6] = CRGB::White;
-    leds[7] = CRGB::White;
-    leds[16] = CRGB::White;
-    leds[17] = CRGB::White;
-    leds[18] = CRGB::White;
-    leds[19] = CRGB::White;
-    leds[20] = CRGB::White;
-    leds[21] = CRGB::White;
-    leds[22] = CRGB::White;
-    leds[23] = CRGB::White;
+    leds[0] = CRGB::Black;
+    leds[1] = CRGB::Black;
+    leds[2] = CRGB::Black;
+    leds[3] = CRGB::Black;
+    leds[4] = CRGB::Black;
+    leds[5] = CRGB::Black;
+    leds[6] = CRGB::Black;
+    leds[7] = CRGB::Black;
+    leds[16] = CRGB::Black;
+    leds[17] = CRGB::Black;
+    leds[18] = CRGB::Black;
+    leds[19] = CRGB::Black;
+    leds[20] = CRGB::Black;
+    leds[21] = CRGB::Black;
+    leds[22] = CRGB::Black;
+    leds[23] = CRGB::Black;
 
     FastLED.show();
-    delay(1500);
+    delay(500);
     
     leds[0] = CRGB::Green;
     leds[1] = CRGB::Green;
@@ -92,8 +93,30 @@ void Lights() {
     leds[23] = CRGB::Green;
 
     FastLED.show();
+    delay(1000);
+    
+    leds[0] = CRGB::Black;
+    leds[1] = CRGB::Black;
+    leds[2] = CRGB::Black;
+    leds[3] = CRGB::Black;
+    leds[4] = CRGB::Black;
+    leds[5] = CRGB::Black;
+    leds[6] = CRGB::Black;
+    leds[7] = CRGB::Black;
+    leds[16] = CRGB::Black;
+    leds[17] = CRGB::Black;
+    leds[18] = CRGB::Black;
+    leds[19] = CRGB::Black;
+    leds[20] = CRGB::Black;
+    leds[21] = CRGB::Black;
+    leds[22] = CRGB::Black;
+    leds[23] = CRGB::Black;
+
+    FastLED.show();
     delay(500);
     
+  }
+  else if (i >= 2) {
     leds[0] = CRGB::White;
     leds[1] = CRGB::White;
     leds[2] = CRGB::White;
@@ -114,34 +137,31 @@ void Lights() {
     FastLED.show();
     delay(1500);
     
-  }
-  else if (i >= 2) {
-    leds[0] = CRGB::White;
-    leds[1] = CRGB::White;
-    leds[2] = CRGB::White;
-    leds[3] = CRGB::White;
-    leds[4] = CRGB::White;
-    leds[5] = CRGB::White;
-    leds[6] = CRGB::White;
-    leds[7] = CRGB::White;
+    leds[0] = CRGB::Black;
+    leds[1] = CRGB::Black;
+    leds[2] = CRGB::Black;
+    leds[3] = CRGB::Black;
+    leds[4] = CRGB::Black;
+    leds[5] = CRGB::Black;
+    leds[6] = CRGB::Black;
+    leds[7] = CRGB::Black;
+    leds[16] = CRGB::Black;
+    leds[17] = CRGB::Black;
+    leds[18] = CRGB::Black;
+    leds[19] = CRGB::Black;
+    leds[20] = CRGB::Black;
+    leds[21] = CRGB::Black;
+    leds[22] = CRGB::Black;
+    leds[23] = CRGB::Black;
 
     FastLED.show();
-    delay(500);
-    
-    leds[0] = CRGB::White;
-    leds[1] = CRGB::White;
-    leds[2] = CRGB::White;
-    leds[3] = CRGB::White;
-    leds[4] = CRGB::White;
-    leds[5] = CRGB::White;
-    leds[6] = CRGB::White;
-    leds[7] = CRGB::White;
-
-    FastLED.show();
-    delay(2000);
+    delay(1000);
   }
 
-  leds[8] = CRGB::White;
+}
+
+
+void Blink(){
   leds[9] = CRGB::White;
   leds[10] = CRGB::White;
   leds[11] = CRGB::White;
@@ -160,27 +180,27 @@ void Lights() {
 
   FastLED.show();
   delay(50);
-  
-  leds[8] = CRGB::White;
-  leds[9] = CRGB::White;
-  leds[10] = CRGB::White;
-  leds[11] = CRGB::White;
-  leds[12] = CRGB::White;
-  leds[13] = CRGB::White;
-  leds[14] = CRGB::White;
-  leds[15] = CRGB::White;
-  leds[24] = CRGB::White;
-  leds[25] = CRGB::White;
-  leds[26] = CRGB::White;
-  leds[27] = CRGB::White;
-  leds[28] = CRGB::White;
-  leds[29] = CRGB::White;
-  leds[30] = CRGB::White;
-  leds[31] = CRGB::White;
-  FastLED.show();
-  delay(2000);
-}
 
+  leds[8] = CRGB::Black;
+  leds[9] = CRGB::Black;
+  leds[10] = CRGB::Black;
+  leds[11] = CRGB::Black;
+  leds[12] = CRGB::Black;
+  leds[13] = CRGB::Black;
+  leds[14] = CRGB::Black;
+  leds[15] = CRGB::Black;
+  leds[24] = CRGB::Black;
+  leds[25] = CRGB::Black;
+  leds[26] = CRGB::Black;
+  leds[27] = CRGB::Black;
+  leds[28] = CRGB::Black;
+  leds[29] = CRGB::Black;
+  leds[30] = CRGB::Black;
+  leds[31] = CRGB::Black;
+
+  FastLED.show();
+  delay(500);
+}
 
 void Sonic(){
   digitalWrite(trigPin, LOW);
@@ -196,5 +216,5 @@ void Sonic(){
   Serial.print("Distance: ");
   Serial.print(disp);
   Serial.println(" cm");
-  delay(1000);
+  delay(1500);
 }
