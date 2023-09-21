@@ -1,3 +1,3 @@
 # Autonomous-Drone
 
-A Drone that gets to collect Data in the Air
+A Drone that collects Data in the Air
