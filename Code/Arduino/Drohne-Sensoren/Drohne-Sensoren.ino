@@ -28,6 +28,14 @@ void loop() {
   float t = sht31.readTemperature();
   float h = sht31.readHumidity();
 
+  SHT31();
+  delay(100);
+  MQ9();
+  SHT31Heat();
+  delay(1000);
+}
+
+void SHT31() {
   if (! isnan(t)) {  // check if 'is not a number'
     Serial.print("Temp *C = "); Serial.print(t); Serial.print("\t\t");
   } else { 
@@ -39,8 +47,10 @@ void loop() {
   } else { 
     Serial.println("Failed to read humidity");
   }
+}
 
-  int sensorValue = analogRead(A0); //Read Value of MQ-9
+void MQ9(){
+   int sensorValue = analogRead(A0); //Read Value of MQ-9
   sensor_volt=(float)sensorValue/1024*5.0;
   RS_gas = (5.0-sensor_volt)/sensor_volt; // omit *RL
         /*-Replace the name "R0" with the value of R0 in the demo of First Test -*/
@@ -53,8 +63,9 @@ void loop() {
   Serial.print("Rs/R0 = ");
   Serial.println(ratio);
   Serial.print("\n\n");
-  delay(100);
+}
 
+void SHT31Heat() {
   // Toggle heater enabled state every 30 seconds
   // An ~3.0 degC temperature increase can be noted when heater is enabled
   if (loopCnt >= 30) {
@@ -68,6 +79,4 @@ void loop() {
     loopCnt = 0;
   }
   loopCnt++;
-
-  delay(1000);
 }
