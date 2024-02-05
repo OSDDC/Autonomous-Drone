@@ -43,6 +43,7 @@ LPG = 0
 GPL = 0
 UVA = 0
 UVB = 0
+MQ9 = 0
 
 arduino = serial.Serial('COM4', 9600, timeout=.1)
 
@@ -50,7 +51,7 @@ def read_from_arduino():
     if arduino.inWaiting() > 0:
         line = arduino.readline().decode('utf-8').strip()
         return line
-        
+
 def read_from_analog(port):
     tempport = MCP3008(port)
     return tempport.value
@@ -69,6 +70,7 @@ while True:
             RSratio = data[2]
         case "Rs/R0":
             Rs_R0 = data[2]
+    MQ9 = read_from_analog(0)
     if Temp != 0 and Hum != 0 and volt != 0 and RSratio != 0 and Rs_R0 != 0:
         outputtext = "{\n"
         outputtext += " \"date\": \"" + datetoday + "\",\n"
@@ -77,6 +79,7 @@ while True:
         outputtext += " \"NO2\": " + NO2 + ",\n"
         outputtext += " \"C2H50H\": " + C2H50H + ",\n"
         outputtext += " \"H2\": " + H2 + ",\n"
+        outputtext += " \"MQ9\": " + MQ9 + ",\n"
         outputtext += " \"NH3\": " + NH3 + ",\n"
         outputtext += " \"CH4\": " + CH4 + ",\n"
         outputtext += " \"C3H8\": " + C3H8 + ",\n"
