@@ -1,3 +1,4 @@
+from gpiozero import MCP3008
 import serial
 import time
 import date
@@ -49,6 +50,10 @@ def read_from_arduino():
     if arduino.inWaiting() > 0:
         line = arduino.readline().decode('utf-8').strip()
         return line
+        
+def read_from_analog(port):
+    tempport = MCP3008(port)
+    return tempport.value
 
 while True:
     time.sleep(0.1)
