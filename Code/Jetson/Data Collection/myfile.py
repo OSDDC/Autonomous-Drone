@@ -26,9 +26,5 @@ led = PWMLED(14)
 
 def mq9():
     while True:
-        if(pot.value < 0.001):
-            led.value = 0
-        else:
-            led.value = pot.value
         print(pot.value)
         sleep(0.1)
