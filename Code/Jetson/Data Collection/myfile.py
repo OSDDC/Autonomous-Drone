@@ -2,7 +2,6 @@
 
 from gpiozero import PWMLED, MCP3008
 from time import sleep
-import date
 
 
 
