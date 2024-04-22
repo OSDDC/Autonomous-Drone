@@ -5,25 +5,13 @@ from time import sleep
 
 
 
-global Temp
-global Hum
-global LPG
-global UVA
-global UVB
-
-global volt
-global RSration
-global Rs_R0
-
-global datetoday
-
 #create an object called pot that refers to MCP3008 channel 0
 pot = MCP3008(0)
 
 #create a PWMLED object called led that refers to GPIO 14
 led = PWMLED(14)
 
-def mq9():
-    while True:
-        print(pot.value)
-        sleep(0.1)
+
+while True:
+    print(pot.value)
+    sleep(0.1)
