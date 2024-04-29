@@ -15,19 +15,22 @@ i2c = board.I2C()  # uses board.SCL and board.SDA
 sensor = adafruit_sht31d.SHT31D(i2c)
 
 #create an object called pot that refers to MCP3008 channel 0
-MQ9 = MCP3008(0)
+MQ9pot = MCP3008(0)
 
 def main():
+    MQ9 = str(MQ9pot.value)
+    Temp = str(sensor.temperature)
+    Hum = str(sensor.relative_humidity)
     while True:
-        print(MQ9.value)
-        print(sensor.temperature)
-        print(sensor.relative_humidity)
+        print(MQ9)
+        print(Temp)
+        print(Hum)
             
         if MQ9.value != 0:
             outputtext = "{\n"
-            outputtext += " \"LPG\": " + MQ9.value + ",\n"
-            outputtext += " \"Temp\": " + sensor.temperature + ",\n"
-            outputtext += " \"Hum\": " + sensor.relative_humidity + ",\n"
+            outputtext += " \"LPG\": " + MQ9 + ",\n"
+            outputtext += " \"Temp\": " + Temp + ",\n"
+            outputtext += " \"Hum\": " + Hum + ",\n"
             outputtext += "}"
         try:
             with open("data.json", "a") as data:
