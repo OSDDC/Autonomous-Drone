@@ -35,7 +35,7 @@ def main():
             outputtext += " \"date\": \"" + datetoday + "\",\n"
             outputtext += " \"LPG\": " + MQ9 + ",\n"
             outputtext += " \"Temp\": " + Temp + ",\n"
-            outputtext += " \"%\": " + Hum + ",\n"
+            outputtext += " \"%\": " + Hum + "\n"
             outputtext += "}"
         try:
             with open("data.json", "a") as data:
