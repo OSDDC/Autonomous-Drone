@@ -6,19 +6,18 @@ from time import sleep
 
 
 #create an object called pot that refers to MCP3008 channel 0
-pot = MCP3008(0)
-
-#create a PWMLED object called led that refers to GPIO 14
-led = PWMLED(14)
+MQ9 = MCP3008(0)
 
 
 while True:
-    print(pot.value)
-    sleep(5)
+    def mq9():
+        print(MQ9.value)
+        sleep(5)
+        
+    mq9()
 
 
-
-    if pot.value != 0:
+    if MQ9.value != 0:
         outputtext = "{\n"
         outputtext += " \"LPG\": " + pot.value + ",\n"
         outputtext += "}"
