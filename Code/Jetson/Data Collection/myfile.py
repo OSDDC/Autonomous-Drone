@@ -16,14 +16,12 @@ sensor = adafruit_sht31d.SHT31D(i2c)
 
 #create an object called pot that refers to MCP3008 channel 0
 MQ9 = MCP3008(0)
-Temp = 1
-Hum = 1
 
 def main():
     while True:
         print(MQ9.value)
-        sleep(5)
-        
+        print(sensor.temperature)
+        print(sensor.relative_humidity)
             
         if MQ9.value != 0:
             outputtext = "{\n"
@@ -38,6 +36,7 @@ def main():
             with open("data.json", "w") as data:
                 data.write(str(outputtext))
 
+        sleep(5)
 
 if __name__ == "__main__":
     main()

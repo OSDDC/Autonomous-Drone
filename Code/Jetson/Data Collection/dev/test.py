@@ -6,9 +6,13 @@ from time import sleep
 
 #create an object called pot that refers to MCP3008 channel 0
 while True:
-    MQ9 = input("Enter the number for the variable:" )
+    MQ9 = input("Enter the number for the variable(LPG):" )
+    Temp = input("Enter the number for the variable(Temp):" )
+    Hum = input("Enter the number for the variable(Hum):" )
 
-    print('Your input was=' + MQ9)
+    print('Your input was(LPG)=' + MQ9)
+    print('Your input was(Temp)=' + Temp)
+    print('Your input was(Hum)=' + Hum)
 
     answer = input("Do you want to continue? (yes/no): ").lower()
     if answer == "yes":
@@ -18,6 +22,8 @@ while True:
         if MQ9 != 0:
             outputtext = "{\n"
             outputtext += " \"LPG\": " + MQ9 + ",\n"
+            outputtext += " \"Temp\": " + Temp + ",\n"
+            outputtext += " \"Hum\": " + Hum + ",\n"
             outputtext += "}"
         try:
             with open("data.json", "a") as data:
