@@ -26,7 +26,7 @@ def main():
         print(MQ9)
         print(Temp)
         print(Hum)
-            
+        
         if MQ9 != 0 and Temp != 0 and Hum != 0:
             outputtext = "{\n"
             outputtext += " \"LPG\": " + MQ9 + ",\n"
