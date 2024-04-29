@@ -18,15 +18,16 @@ sensor = adafruit_sht31d.SHT31D(i2c)
 MQ9pot = MCP3008(0)
 
 def main():
-    MQ9 = str(MQ9pot.value)
-    Temp = str(sensor.temperature)
-    Hum = str(sensor.relative_humidity)
     while True:
+        MQ9 = str(MQ9pot.value)
+        Temp = str(sensor.temperature)
+        Hum = str(sensor.relative_humidity)
+    
         print(MQ9)
         print(Temp)
         print(Hum)
             
-        if MQ9.value != 0:
+        if MQ9 != 0 and Temp != 0 and Hum != 0:
             outputtext = "{\n"
             outputtext += " \"LPG\": " + MQ9 + ",\n"
             outputtext += " \"Temp\": " + Temp + ",\n"
