@@ -2,6 +2,9 @@
 
 #from gpiozero import PWMLED, MCP3008
 from time import sleep
+import datetime
+
+datetoday = str(datetime.date.today())
 
 
 #create an object called pot that refers to MCP3008 channel 0
@@ -21,6 +24,7 @@ while True:
 
         if MQ9 != 0:
             outputtext = "{\n"
+            outputtext += " \"date\": \"" + datetoday + "\",\n"
             outputtext += " \"LPG\": " + MQ9 + ",\n"
             outputtext += " \"Temp\": " + Temp + ",\n"
             outputtext += " \"Hum\": " + Hum + ",\n"

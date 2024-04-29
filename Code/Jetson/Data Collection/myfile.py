@@ -6,6 +6,9 @@ from gpiozero import PWMLED, MCP3008
 from time import sleep
 import board
 import adafruit_sht31d
+import datetime
+
+datetoday = str(datetime.date.today())
 
 # sudo pip3 install adafruit-circuitpython-sht31d
 
@@ -29,9 +32,10 @@ def main():
         
         if MQ9 != 0 and Temp != 0 and Hum != 0:
             outputtext = "{\n"
+            outputtext += " \"date\": \"" + datetoday + "\",\n"
             outputtext += " \"LPG\": " + MQ9 + ",\n"
             outputtext += " \"Temp\": " + Temp + ",\n"
-            outputtext += " \"Hum\": " + Hum + ",\n"
+            outputtext += " \"%\": " + Hum + ",\n"
             outputtext += "}"
         try:
             with open("data.json", "a") as data:
