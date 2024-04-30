@@ -2,7 +2,7 @@
 # https://learn.adafruit.com/adafruit-sht31-d-temperature-and-humidity-sensor-breakout/python-circuitpython
 
 
-from gpiozero import PWMLED, MCP3008 # type: ignore
+from gpiozero import MCP3008 # type: ignore
 from time import sleep
 import board # type: ignore
 import adafruit_sht31d # type: ignore
