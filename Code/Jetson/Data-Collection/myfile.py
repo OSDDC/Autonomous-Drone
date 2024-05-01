@@ -2,15 +2,15 @@
 # https://learn.adafruit.com/adafruit-sht31-d-temperature-and-humidity-sensor-breakout/python-circuitpython
 
 
-from gpiozero import PWMLED, MCP3008
+from gpiozero import MCP3008 # type: ignore
 from time import sleep
-import board
-import adafruit_sht31d
+import board # type: ignore
+import adafruit_sht31d # type: ignore
 import datetime
 
 datetoday = str(datetime.date.today())
 
-# sudo pip3 install adafruit-circuitpython-sht31d
+# sudo pip3 install adafruit-circuitpython-sht31d --break-system-packages
 
 # Create sensor object, communicating over the board's default I2C bus
 i2c = board.I2C()  # uses board.SCL and board.SDA
