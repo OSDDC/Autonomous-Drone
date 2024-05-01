@@ -44,7 +44,7 @@ def main():
             with open("data.json", "w") as data:
                 data.write(str(outputtext))
 
-        sleep(5)
+        sleep(30)
 
 if __name__ == "__main__":
     main()
