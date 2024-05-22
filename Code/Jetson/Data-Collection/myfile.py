@@ -1,14 +1,10 @@
-# Complete Project Details: https://RandomNerdTutorials.com/raspberry-pi-analog-inputs-python-mcp3008/
-# https://learn.adafruit.com/adafruit-sht31-d-temperature-and-humidity-sensor-breakout/python-circuitpython
-
-
-from gpiozero import MCP3008 # type: ignore
+from gpiozero import MCP3008  # type: ignore
 from time import sleep
-import board # type: ignore
-import adafruit_sht31d # type: ignore
+import board  # type: ignore
+import adafruit_sht31d  # type: ignore
 import datetime
-
-datetoday = str(datetime.date.today())
+import os
+import json
 
 # sudo pip3 install adafruit-circuitpython-sht31d --break-system-packages
 
@@ -17,33 +13,61 @@ i2c = board.I2C()  # uses board.SCL and board.SDA
 # i2c = board.STEMMA_I2C()  # For using the built-in STEMMA QT connector on a microcontroller
 sensor = adafruit_sht31d.SHT31D(i2c)
 
-#create an object called pot that refers to MCP3008 channel 0
+# Create an object called pot that refers to MCP3008 channel 0
 MQ9pot = MCP3008(0)
 
+def get_user_input(MQ9, Temp, Hum):
+    date = str(datetime.date.today().strftime("%d.%m.%Y"))
+
+    # Convert sensor readings to appropriate types
+    lpg = int(float(MQ9) * 1023)  # Assuming MQ9pot.value returns a float between 0 and 1
+    percentage = int(Hum)
+    temp = int(Temp)
+
+    return {
+        "date": date,
+        "LPG": lpg,
+        "%": percentage,
+        "TEMP": temp
+    }
+
+def load_data(filename):
+    if os.path.exists(filename):
+        with open(filename, 'r') as json_file:
+            try:
+                return json.load(json_file)
+            except json.JSONDecodeError:
+                return []
+    else:
+        return []
+
+def save_data(filename, data):
+    with open(filename, 'w') as json_file:
+        json.dump(data, json_file, indent=4)
+
 def main():
+    filename = 'data.json'
+    
     while True:
+        # Read sensor values
         MQ9 = str(MQ9pot.value)
         Temp = str(sensor.temperature)
         Hum = str(sensor.relative_humidity)
-    
-        print(MQ9)
-        print(Temp)
-        print(Hum)
         
-        if MQ9 != 0 and Temp != 0 and Hum != 0:
-            outputtext = "{\n"
-            outputtext += " \"date\": \"" + datetoday + "\",\n"
-            outputtext += " \"LPG\": " + MQ9 + ",\n"
-            outputtext += " \"Temp\": " + Temp + ",\n"
-            outputtext += " \"%\": " + Hum + "\n"
-            outputtext += "}"
-        try:
-            with open("data.json", "a") as data:
-                data.write(",\n" + str(outputtext))
-        except:
-            with open("data.json", "w") as data:
-                data.write(str(outputtext))
-
+        # Load existing data
+        data_list = load_data(filename)
+        
+        # Collect new data
+        data = get_user_input(MQ9, Temp, Hum)
+        
+        # Add new data to list
+        data_list.append(data)
+        
+        # Save updated data list
+        save_data(filename, data_list)
+        
+        print("Daten wurden erfolgreich in data.json gespeichert.")
+        
         sleep(30)
 
 if __name__ == "__main__":
