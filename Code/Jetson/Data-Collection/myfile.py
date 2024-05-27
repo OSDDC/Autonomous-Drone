@@ -21,7 +21,7 @@ def get_user_input(MQ9, Temp, Hum):
     MQ9 = str(MQ9pot.value)
     Temp = str(sensor.temperature)
     Hum = str(sensor.relative_humidity)
-    
+
     date = str(datetime.date.today().strftime("%d.%m.%Y"))
 
     # Convert sensor readings to appropriate types
@@ -59,7 +59,7 @@ def main():
         data_list = load_data(filename)
         
         # Collect new data
-        data = get_user_input(MQ9, Temp, Hum)
+        data = get_user_input(lpg, percentage, temp)
         
         # Add new data to list
         data_list.append(data)
