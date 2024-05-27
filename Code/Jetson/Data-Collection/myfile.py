@@ -59,7 +59,7 @@ def main():
         data_list = load_data(filename)
         
         # Collect new data
-        data = get_user_input(lpg, percentage, temp)
+        data = get_user_input(LPG, %, TEMP)
         
         # Add new data to list
         data_list.append(data)
