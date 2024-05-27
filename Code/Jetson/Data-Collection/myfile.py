@@ -18,16 +18,16 @@ MQ9pot = MCP3008(0)
 
 def get_sensor_data():
     # Read sensor values
-    MQ9 = str(MQ9pot.value)
-    Temp = str(sensor.temperature)
-    Hum = str(sensor.relative_humidity)
+    MQ9 = MQ9pot.value
+    Temp = sensor.temperature
+    Hum = sensor.relative_humidity
 
-    date = str(datetime.date.today().strftime("%d.%m.%Y"))
+    date = datetime.date.today().strftime("%d.%m.%Y")
 
     # Convert sensor readings to appropriate types
-    lpg = int(float(MQ9) * 1023)  # Assuming MQ9pot.value returns a float between 0 and 1
-    percentage = int(Hum)
-    temp = int(Temp)
+    lpg = int(MQ9 * 1023)  # Assuming MQ9pot.value returns a float between 0 and 1
+    percentage = round(Hum)
+    temp = round(Temp)
 
     return {
         "date": date,
