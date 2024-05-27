@@ -66,8 +66,16 @@ def main():
         # Save updated data list
         save_data(filename, data_list)
         
+        formatted_data = (
+        f"Measurement Data:\n"
+        f"Date: {data['date']}\n"
+        f"LPG Level: {data['LPG']} ppm\n"
+        f"Humidity: {data['Hum']}%\n"
+        f"Temperature: {data['TEMP']}°C"
+        )
+        
         print("Daten wurden erfolgreich in data.json gespeichert.")
-        print(data)
+        print(formatted_data)
         
         sleep(30)
 
