@@ -16,8 +16,8 @@ sensor = adafruit_sht31d.SHT31D(i2c)
 # Create an object called pot that refers to MCP3008 channel 0
 MQ9pot = MCP3008(0)
 
-def get_user_input(date, LPG, TEMP, Hum):
-     # Read sensor values
+def get_sensor_data():
+    # Read sensor values
     MQ9 = str(MQ9pot.value)
     Temp = str(sensor.temperature)
     Hum = str(sensor.relative_humidity)
@@ -54,12 +54,11 @@ def main():
     filename = 'data.json'
     
     while True:
-        
         # Load existing data
         data_list = load_data(filename)
         
         # Collect new data
-        data = get_user_input(date, LPG, TEMP, Hum)
+        data = get_sensor_data()
         
         # Add new data to list
         data_list.append(data)
