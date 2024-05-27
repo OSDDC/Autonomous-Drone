@@ -32,7 +32,7 @@ def get_user_input(MQ9, Temp, Hum):
     return {
         "date": date,
         "LPG": lpg,
-        "%": percentage,
+        "Hum": percentage,
         "TEMP": temp
     }
 
@@ -59,7 +59,7 @@ def main():
         data_list = load_data(filename)
         
         # Collect new data
-        data = get_user_input(LPG, %, TEMP)
+        data = get_user_input(LPG, Hum, TEMP)
         
         # Add new data to list
         data_list.append(data)
