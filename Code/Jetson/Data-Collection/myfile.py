@@ -17,6 +17,11 @@ sensor = adafruit_sht31d.SHT31D(i2c)
 MQ9pot = MCP3008(0)
 
 def get_user_input(MQ9, Temp, Hum):
+     # Read sensor values
+    MQ9 = str(MQ9pot.value)
+    Temp = str(sensor.temperature)
+    Hum = str(sensor.relative_humidity)
+    
     date = str(datetime.date.today().strftime("%d.%m.%Y"))
 
     # Convert sensor readings to appropriate types
@@ -49,10 +54,6 @@ def main():
     filename = 'data.json'
     
     while True:
-        # Read sensor values
-        MQ9 = str(MQ9pot.value)
-        Temp = str(sensor.temperature)
-        Hum = str(sensor.relative_humidity)
         
         # Load existing data
         data_list = load_data(filename)
