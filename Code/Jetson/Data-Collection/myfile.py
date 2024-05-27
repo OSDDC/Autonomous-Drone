@@ -67,6 +67,7 @@ def main():
         save_data(filename, data_list)
         
         print("Daten wurden erfolgreich in data.json gespeichert.")
+        print(data)
         
         sleep(30)
 
